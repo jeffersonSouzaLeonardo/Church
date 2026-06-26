@@ -1,0 +1,20 @@
+CREATE TABLE `person_entity` (
+                        `id` BINARY(16) NOT NULL,
+                        `name` VARCHAR(100) NOT NULL,
+                        `nick_name` VARCHAR(100),
+                        `birth_date` DATE,
+                        `naturalness` VARCHAR(100),
+                        `origin_city` VARCHAR(100),
+                        `sexy_enum` VARCHAR(20),
+                        `marital_status_enum` VARCHAR(20),
+                        `cpf` VARCHAR(14),
+                        `rg` VARCHAR(20),
+                        `orgao_expeditor` VARCHAR(50),
+                        `professional` VARCHAR(100),
+                        `company_work` VARCHAR(100),
+                        `education_enum` VARCHAR(50),
+                        `member` TINYINT(1) NOT NULL DEFAULT 0,
+                        `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        `updated_at` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+                        PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

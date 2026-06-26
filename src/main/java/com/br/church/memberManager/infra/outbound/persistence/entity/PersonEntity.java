@@ -1,0 +1,188 @@
+package com.br.church.memberManager.infra.outbound.persistence.entity;
+
+import com.br.church.memberManager.domain.enums.EducationEnum;
+import com.br.church.memberManager.domain.enums.MaritalStatusEnum;
+import com.br.church.memberManager.domain.enums.SexyEnum;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Size;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
+public class PersonEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
+
+    @NotBlank(message = "O nome é obrigatório.")
+    @Size(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres.")
+    private String name;
+
+    private String nickName;
+    private LocalDate birthDate;
+    private String naturalness;
+    private String originCity;
+    private SexyEnum sexyEnum;
+    private MaritalStatusEnum maritalStatusEnum;
+    private String cpf;
+    private String rg;
+    private String orgaoExpeditor;
+    private String professional;
+    private String companyWork;
+    private EducationEnum educationEnum;
+    private boolean member;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private LocalDateTime deletedAt;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getNaturalness() {
+        return naturalness;
+    }
+
+    public void setNaturalness(String naturalness) {
+        this.naturalness = naturalness;
+    }
+
+    public String getOriginCity() {
+        return originCity;
+    }
+
+    public void setOriginCity(String originCity) {
+        this.originCity = originCity;
+    }
+
+    public SexyEnum getSexyEnum() {
+        return sexyEnum;
+    }
+
+    public void setSexyEnum(SexyEnum sexyEnum) {
+        this.sexyEnum = sexyEnum;
+    }
+
+    public MaritalStatusEnum getMaritalStatusEnum() {
+        return maritalStatusEnum;
+    }
+
+    public void setMaritalStatusEnum(MaritalStatusEnum maritalStatusEnum) {
+        this.maritalStatusEnum = maritalStatusEnum;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getOrgaoExpeditor() {
+        return orgaoExpeditor;
+    }
+
+    public void setOrgaoExpeditor(String orgaoExpeditor) {
+        this.orgaoExpeditor = orgaoExpeditor;
+    }
+
+    public String getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(String professional) {
+        this.professional = professional;
+    }
+
+    public String getCompanyWork() {
+        return companyWork;
+    }
+
+    public void setCompanyWork(String companyWork) {
+        this.companyWork = companyWork;
+    }
+
+    public EducationEnum getEducationEnum() {
+        return educationEnum;
+    }
+
+    public void setEducationEnum(EducationEnum educationEnum) {
+        this.educationEnum = educationEnum;
+    }
+
+    public boolean isMember() {
+        return member;
+    }
+
+    public void setMember(boolean member) {
+        this.member = member;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+}

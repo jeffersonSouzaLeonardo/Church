@@ -1,0 +1,152 @@
+package com.br.church.memberManager.infra.inbound.rest.dto;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+public class PersonResponseDTO {
+    private UUID id;
+    private String name;
+    private String nickName;
+    private LocalDate birthDate;
+    private String naturalness;
+    private String originCity;
+    private String sexy;
+    private String maritalStatus;
+    private String cpf;
+    private String rg;
+    private String orgaoExpeditor;
+    private String professional;
+    private String companyWork;
+    private String education;
+    private String member;
+    private LocalDateTime deletedAt;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getNaturalness() {
+        return naturalness;
+    }
+
+    public void setNaturalness(String naturalness) {
+        this.naturalness = naturalness;
+    }
+
+    public String getOriginCity() {
+        return originCity;
+    }
+
+    public void setOriginCity(String originCity) {
+        this.originCity = originCity;
+    }
+
+    public String getSexy() {
+        return sexy;
+    }
+
+    public void setSexy(String sexy) {
+        this.sexy = sexy;
+    }
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getOrgaoExpeditor() {
+        return orgaoExpeditor;
+    }
+
+    public void setOrgaoExpeditor(String orgaoExpeditor) {
+        this.orgaoExpeditor = orgaoExpeditor;
+    }
+
+    public String getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(String professional) {
+        this.professional = professional;
+    }
+
+    public String getCompanyWork() {
+        return companyWork;
+    }
+
+    public void setCompanyWork(String companyWork) {
+        this.companyWork = companyWork;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public String getMember() {
+        return member;
+    }
+
+    public void setMember(String member) {
+        this.member = member;
+    }
+
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+}
