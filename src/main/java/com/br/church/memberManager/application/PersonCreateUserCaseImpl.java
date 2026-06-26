@@ -4,7 +4,8 @@ import com.br.church.common.BusinessException;
 import com.br.church.memberManager.domain.model.Person;
 import com.br.church.memberManager.infra.inbound.rest.dto.PersonRequestDTO;
 import com.br.church.memberManager.infra.inbound.rest.dto.PersonResponseDTO;
-import com.br.church.memberManager.infra.mapper.PersonEntityToPersonResponseDTO;
+import com.br.church.memberManager.infra.mapper.PersonEntityToPerson;
+import com.br.church.memberManager.infra.mapper.PersonToPersonResponseDTO;
 import com.br.church.memberManager.infra.mapper.PersonRequestDtoToPerson;
 import com.br.church.memberManager.infra.mapper.PersonToPersonEntity;
 import com.br.church.memberManager.infra.outbound.persistence.PersonRepositoryAdapter;
@@ -23,13 +24,15 @@ public class PersonCreateUserCaseImpl implements PersonCreateUserCase {
     private final PersonRequestDtoToPerson personRequestDtoToPerson;
     private final PersonRepositoryAdapter personRepositoryAdapter;
     private final PersonToPersonEntity personToPersonEntity;
-    private final PersonEntityToPersonResponseDTO personEntityToPersonResponseDTO;
+    private final PersonToPersonResponseDTO personToPersonResponseDTO;
+    private final PersonEntityToPerson personEntityToPerson;
 
-    public PersonCreateUserCaseImpl(PersonRequestDtoToPerson personRequestDtoToPerson, PersonRepositoryAdapter personRepositoryAdapter, PersonToPersonEntity personToPersonEntity, PersonEntityToPersonResponseDTO personEntityToPersonResponseDTO) {
+    public PersonCreateUserCaseImpl(PersonRequestDtoToPerson personRequestDtoToPerson, PersonRepositoryAdapter personRepositoryAdapter, PersonToPersonEntity personToPersonEntity, PersonToPersonResponseDTO personToPersonResponseDTO, PersonEntityToPerson personEntityToPerson) {
         this.personRequestDtoToPerson = personRequestDtoToPerson;
         this.personRepositoryAdapter = personRepositoryAdapter;
         this.personToPersonEntity = personToPersonEntity;
-        this.personEntityToPersonResponseDTO = personEntityToPersonResponseDTO;
+        this.personToPersonResponseDTO = personToPersonResponseDTO;
+        this.personEntityToPerson = personEntityToPerson;
     }
 
     @Override
@@ -37,8 +40,9 @@ public class PersonCreateUserCaseImpl implements PersonCreateUserCase {
 
         try {
             Person person = this.personRequestDtoToPerson.map(personRequestDTO);
-            PersonEntity personSaved = this.personRepositoryAdapter.create(this.personToPersonEntity.map(person));
-            return this.personEntityToPersonResponseDTO.map(personSaved);
+            PersonEntity personEntity = this.personRepositoryAdapter.create(this.personToPersonEntity.map(person));
+            person = this.personEntityToPerson.map(personEntity);
+            return this.personToPersonResponseDTO.map(person);
 
         } catch (ConstraintViolationException constraintViolationException){
             List<String> validationError = constraintViolationException.getConstraintViolations().stream()

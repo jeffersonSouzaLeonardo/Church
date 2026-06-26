@@ -1,5 +1,5 @@
 CREATE TABLE `person_entity` (
-                        `id` BINARY(16) NOT NULL,
+                        `id` BIGINT NOT NULL AUTO_INCREMENT,
                         `name` VARCHAR(100) NOT NULL,
                         `nick_name` VARCHAR(100),
                         `birth_date` DATE,
@@ -16,5 +16,6 @@ CREATE TABLE `person_entity` (
                         `member` TINYINT(1) NOT NULL DEFAULT 0,
                         `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                         `updated_at` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+                        `deleted_at` DATETIME DEFAULT NULL,
                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

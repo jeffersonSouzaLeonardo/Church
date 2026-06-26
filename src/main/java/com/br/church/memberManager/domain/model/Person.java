@@ -7,10 +7,9 @@ import com.br.church.memberManager.domain.enums.SexyEnum;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class Person {
-    private UUID id;
+    private Long id;
     private String name;
     private String nickName;
     private LocalDate birthDate;
@@ -27,11 +26,11 @@ public class Person {
     private boolean member;
     private LocalDateTime deletedAt;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

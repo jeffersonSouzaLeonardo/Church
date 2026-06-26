@@ -12,6 +12,7 @@ public class PersonRequestDtoToPerson {
 
     public Person map(PersonRequestDTO personRequestDTO) {
         Person person = new Person();
+        person.setId(personRequestDTO.getId());
         person.setName(personRequestDTO.getName());
         person.setNickName(personRequestDTO.getNickName());
         person.setBirthDate(personRequestDTO.getBirthDate());

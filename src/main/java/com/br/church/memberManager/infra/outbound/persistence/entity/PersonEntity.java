@@ -12,14 +12,13 @@ import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBl
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 public class PersonEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
 
     @NotBlank(message = "O nome é obrigatório.")
     @Size(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres.")
@@ -42,11 +41,11 @@ public class PersonEntity {
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
