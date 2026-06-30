@@ -3,10 +3,7 @@ package com.br.church.memberManager.infra.outbound.persistence.entity;
 import com.br.church.memberManager.domain.enums.EducationEnum;
 import com.br.church.memberManager.domain.enums.MaritalStatusEnum;
 import com.br.church.memberManager.domain.enums.SexyEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
 
@@ -40,6 +37,9 @@ public class PersonEntity {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
+
+    @OneToOne(mappedBy = "personEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private AddressEntity addressEntity;
 
     public Long getId() {
         return id;
@@ -183,5 +183,13 @@ public class PersonEntity {
 
     public void setDeletedAt(LocalDateTime deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public AddressEntity getAddressEntity() {
+        return addressEntity;
+    }
+
+    public void setAddressEntity(AddressEntity addressEntity) {
+        this.addressEntity = addressEntity;
     }
 }

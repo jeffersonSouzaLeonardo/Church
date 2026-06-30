@@ -82,14 +82,6 @@ public class Person {
         this.sexyEnum = sexyEnum;
     }
 
-    public MaritalStatusEnum getMaritalStatusEnum() {
-        return maritalStatusEnum;
-    }
-
-    public void setMaritalStatus(MaritalStatusEnum maritalStatusEnum) {
-        this.maritalStatusEnum = maritalStatusEnum;
-    }
-
     public String getCpf() {
         return cpf;
     }
@@ -138,10 +130,6 @@ public class Person {
         this.educationEnum = educationEnum;
     }
 
-    public void setMaritalStatusEnum(MaritalStatusEnum maritalStatusEnum) {
-        this.maritalStatusEnum = maritalStatusEnum;
-    }
-
     public boolean isMember() {
         return member;
     }
@@ -156,5 +144,13 @@ public class Person {
 
     public void setDeletedAt(LocalDateTime deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public MaritalStatusEnum getMaritalStatusEnum() {
+        return maritalStatusEnum;
+    }
+
+    public void setMaritalStatusEnum(MaritalStatusEnum maritalStatusEnum) {
+        this.maritalStatusEnum = maritalStatusEnum;
     }
 }
