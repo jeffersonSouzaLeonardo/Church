@@ -13,4 +13,17 @@ public enum SexyEnum {
     public String getDescription() {
         return description;
     }
+
+    public static SexyEnum fromString(String value) {
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        for (SexyEnum sexy : values()) {
+            if (sexy.name().equalsIgnoreCase(value.trim())
+                    || sexy.description.equalsIgnoreCase(value.trim())) {
+                return sexy;
+            }
+        }
+        throw new IllegalArgumentException("Valor inválido para sexo: " + value);
+    }
 }

@@ -32,6 +32,13 @@ public class PersonEntityToPerson {
         person.setSexyEnum(personEntity.getSexyEnum());
         person.setCompanyWork(personEntity.getCompanyWork());
         person.setDeletedAt(personEntity.getDeletedAt());
+        person.setStreet(personEntity.getStreet());
+        person.setNumber(personEntity.getNumber());
+        person.setComplement(personEntity.getComplement());
+        person.setNeighborhood(personEntity.getNeighborhood());
+        person.setCity(personEntity.getCity());
+        person.setState(personEntity.getState());
+        person.setCep(personEntity.getCep());
         return person;
     }
 

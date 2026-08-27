@@ -54,7 +54,7 @@ public class PersonCreateUserCaseImpl implements PersonCreateUserCase {
             if( StringUtils.isNotBlank(personRequestDTO.getName())) {
                 personName = personRequestDTO.getName();
             }
-            throw new BusinessException("Erro ao salvar pessoa " + personName, e);
+            throw new BusinessException("Erro ao salvar pessoa " + personName + " - " + e.getMessage() , e);
         }
 
     }

@@ -1,0 +1,2 @@
+ALTER TABLE `users`
+    ADD COLUMN `administration` BOOLEAN NOT NULL DEFAULT FALSE;

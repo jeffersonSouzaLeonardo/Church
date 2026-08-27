@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class PersonRepositoryAdapter {
+public class
+PersonRepositoryAdapter {
     private final PersonRepository personRepository;
 
     public PersonRepositoryAdapter(PersonRepository personRepository) {

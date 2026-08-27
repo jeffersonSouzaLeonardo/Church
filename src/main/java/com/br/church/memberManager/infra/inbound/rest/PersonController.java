@@ -5,6 +5,7 @@ import com.br.church.memberManager.infra.inbound.rest.dto.PersonResponseDTO;
 import com.br.church.memberManager.ports.inbound.PersonCreateUserCase;
 import com.br.church.memberManager.ports.inbound.PersonDeleteUseCase;
 import com.br.church.memberManager.ports.inbound.PersonFindAllUseCase;
+import com.br.church.memberManager.ports.inbound.PersonFindByIdUseCase;
 import com.br.church.memberManager.ports.inbound.PersonFindNameUseCase;
 import com.br.church.memberManager.ports.inbound.PersonUpdateUseCase;
 import jakarta.validation.Valid;
@@ -23,15 +24,17 @@ public class PersonController {
     private final PersonFindAllUseCase personFindAllUseCase;
     private final PersonDeleteUseCase personDeleteUseCase;
     private final PersonFindNameUseCase personFindNameUseCase;
+    private final PersonFindByIdUseCase personFindByIdUseCase;
     private final PersonUpdateUseCase personUpdateUseCase;
 
     public PersonController(PersonCreateUserCase personCreateUserCase, PersonFindAllUseCase personFindAllUseCase,
                             PersonDeleteUseCase personDeleteUseCase, PersonFindNameUseCase personFindNameUseCase,
-                            PersonUpdateUseCase personUpdateUseCase) {
+                            PersonFindByIdUseCase personFindByIdUseCase, PersonUpdateUseCase personUpdateUseCase) {
         this.personCreateUserCase = personCreateUserCase;
         this.personFindAllUseCase = personFindAllUseCase;
         this.personDeleteUseCase = personDeleteUseCase;
         this.personFindNameUseCase = personFindNameUseCase;
+        this.personFindByIdUseCase = personFindByIdUseCase;
         this.personUpdateUseCase = personUpdateUseCase;
     }
 
@@ -46,12 +49,17 @@ public class PersonController {
         return ResponseEntity.ok(personFindAllUseCase.findAll());
     }
 
-    @GetMapping("/{idOrName}")
+    @GetMapping("/{id}")
+    public ResponseEntity<PersonResponseDTO> findById(@PathVariable Long id){
+        return ResponseEntity.ok(personFindByIdUseCase.findById(id));
+    }
+
+    @GetMapping("/name/{name}")
     public ResponseEntity<List<PersonResponseDTO>> findName(@PathVariable String name){
         return ResponseEntity.ok(personFindNameUseCase.findName(name));
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<PersonResponseDTO> update(@PathVariable Long id, @Valid @RequestBody PersonRequestDTO inputDTO){
         return ResponseEntity.ok(personUpdateUseCase.update(id, inputDTO));
     }

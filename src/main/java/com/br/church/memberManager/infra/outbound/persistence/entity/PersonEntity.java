@@ -6,11 +6,14 @@ import com.br.church.memberManager.domain.enums.SexyEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name="persons")
 public class PersonEntity {
 
     @Id
@@ -25,21 +28,32 @@ public class PersonEntity {
     private LocalDate birthDate;
     private String naturalness;
     private String originCity;
+
+    @Enumerated(EnumType.STRING)
     private SexyEnum sexyEnum;
+
+    @Enumerated(EnumType.STRING)
     private MaritalStatusEnum maritalStatusEnum;
     private String cpf;
     private String rg;
     private String orgaoExpeditor;
     private String professional;
     private String companyWork;
+    @Enumerated(EnumType.STRING)
     private EducationEnum educationEnum;
     private boolean member;
-    private LocalDateTime createdAt;
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
+    @CreationTimestamp
+    private LocalDateTime createdAt;
     private LocalDateTime deletedAt;
-
-    @OneToOne(mappedBy = "personEntity", cascade = CascadeType.ALL, orphanRemoval = true)
-    private AddressEntity addressEntity;
+    private String street;
+    private String number;
+    private String complement;
+    private String neighborhood;
+    private String city;
+    private String state;
+    private String cep;
 
     public Long getId() {
         return id;
@@ -185,11 +199,59 @@ public class PersonEntity {
         this.deletedAt = deletedAt;
     }
 
-    public AddressEntity getAddressEntity() {
-        return addressEntity;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddressEntity(AddressEntity addressEntity) {
-        this.addressEntity = addressEntity;
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getComplement() {
+        return complement;
+    }
+
+    public void setComplement(String complement) {
+        this.complement = complement;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 }

@@ -18,16 +18,23 @@ public class PersonRequestDtoToPerson {
         person.setBirthDate(personRequestDTO.getBirthDate());
         person.setNaturalness(personRequestDTO.getNaturalness());
         person.setOriginCity(personRequestDTO.getOriginCity());
-        person.setSexyEnum(SexyEnum.valueOf(personRequestDTO.getSexy()));
-        person.setMaritalStatus(MaritalStatusEnum.valueOf(personRequestDTO.getMaritalStatus()));
+        person.setSexyEnum(SexyEnum.fromString(personRequestDTO.getSexy()));
+        person.setMaritalStatusEnum(MaritalStatusEnum.fromString(personRequestDTO.getMaritalStatus()));
         person.setCpf(personRequestDTO.getCpf());
         person.setRg(personRequestDTO.getRg());
         person.setOrgaoExpeditor(personRequestDTO.getOrgaoExpeditor());
         person.setProfessional(personRequestDTO.getProfessional());
         person.setCompanyWork(personRequestDTO.getCompanyWork());
-        person.setEducationEnum(EducationEnum.valueOf(personRequestDTO.getEducation()));
+        person.setEducationEnum(EducationEnum.fromString(personRequestDTO.getEducation()));
         person.setMember(personRequestDTO.getMember());
         person.setDeletedAt(personRequestDTO.getDeletedAt());
+        person.setStreet(personRequestDTO.getStreet());
+        person.setNumber(personRequestDTO.getNumber());
+        person.setComplement(personRequestDTO.getComplement());
+        person.setNeighborhood(personRequestDTO.getNeighborhood());
+        person.setCity(personRequestDTO.getCity());
+        person.setState(personRequestDTO.getState());
+        person.setCep(personRequestDTO.getCep());
         return person;
     }
 

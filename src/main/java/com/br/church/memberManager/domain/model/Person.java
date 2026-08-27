@@ -1,4 +1,3 @@
-
 package com.br.church.memberManager.domain.model;
 
 import com.br.church.memberManager.domain.enums.EducationEnum;
@@ -7,6 +6,7 @@ import com.br.church.memberManager.domain.enums.SexyEnum;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 
 public class Person {
     private Long id;
@@ -25,6 +25,13 @@ public class Person {
     private EducationEnum educationEnum;
     private boolean member;
     private LocalDateTime deletedAt;
+    private String street;
+    private String number;
+    private String complement;
+    private String neighborhood;
+    private String city;
+    private String state;
+    private String cep;
 
     public Long getId() {
         return id;
@@ -152,5 +159,61 @@ public class Person {
 
     public void setMaritalStatusEnum(MaritalStatusEnum maritalStatusEnum) {
         this.maritalStatusEnum = maritalStatusEnum;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getComplement() {
+        return complement;
+    }
+
+    public void setComplement(String complement) {
+        this.complement = complement;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 }
